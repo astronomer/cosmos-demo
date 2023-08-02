@@ -3,7 +3,7 @@ from datetime import datetime
 from cosmos import DbtDag, ProjectConfig, ProfileConfig
 from cosmos.profiles import PostgresUserPasswordProfileMapping
 
-from include.constants import jaffle_shop_path, venv_execution_config, dbt_executable
+from include.constants import jaffle_shop_path, venv_execution_config
 
 dbt_profile_overrides = DbtDag(
     # dbt/cosmos-specific parameters
@@ -18,9 +18,6 @@ dbt_profile_overrides = DbtDag(
         ),
     ),
     execution_config=venv_execution_config,
-    operator_args={
-        "dbt_executable_path": str(dbt_executable),
-    },
     # normal dag parameters
     schedule_interval="@daily",
     start_date=datetime(2023, 1, 1),

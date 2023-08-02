@@ -7,7 +7,7 @@ from airflow.operators.empty import EmptyOperator
 from cosmos import DbtTaskGroup, ProjectConfig
 
 from include.profiles import airflow_db
-from include.constants import jaffle_shop_path, venv_execution_config, dbt_executable
+from include.constants import jaffle_shop_path, venv_execution_config
 
 
 @dag(
@@ -27,9 +27,6 @@ def simple_task_group() -> None:
         project_config=ProjectConfig(str(jaffle_shop_path)),
         profile_config=airflow_db,
         execution_config=venv_execution_config,
-        operator_args={
-            "dbt_executable_path": str(dbt_executable),
-        },
     )
 
     post_dbt = EmptyOperator(task_id="post_dbt")
