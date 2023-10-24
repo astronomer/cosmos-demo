@@ -7,7 +7,7 @@ from include.constants import jaffle_shop_path, venv_execution_config
 
 simple_dag = DbtDag(
     # dbt/cosmos-specific parameters
-    project_config=ProjectConfig(str(jaffle_shop_path)),
+    project_config=ProjectConfig(jaffle_shop_path),
     profile_config=airflow_db,
     execution_config=venv_execution_config,
     # normal dag parameters

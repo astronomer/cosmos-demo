@@ -24,7 +24,7 @@ def simple_task_group() -> None:
 
     jaffle_shop = DbtTaskGroup(
         group_id="my_jaffle_shop_project",
-        project_config=ProjectConfig(str(jaffle_shop_path)),
+        project_config=ProjectConfig(jaffle_shop_path),
         profile_config=airflow_db,
         execution_config=venv_execution_config,
     )
