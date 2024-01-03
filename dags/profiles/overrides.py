@@ -7,7 +7,7 @@ from include.constants import jaffle_shop_path, venv_execution_config
 
 dbt_profile_overrides = DbtDag(
     # dbt/cosmos-specific parameters
-    project_config=ProjectConfig(str(jaffle_shop_path)),
+    project_config=ProjectConfig(jaffle_shop_path),
     profile_config=ProfileConfig(
         # these map to dbt/jaffle_shop/profiles.yml
         profile_name="airflow_db",
