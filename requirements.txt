@@ -1,10 +1,10 @@
 dbt-bigquery
 
 # Requirements Cosmos 1.2.0
-astronomer-cosmos==1.2.0
+#astronomer-cosmos==1.2.0
 
 # Requirements Cosmos 1.3.0
-# astronomer-cosmos==1.3.0
+astronomer-cosmos==1.3.0
 
 # Requirements Cosmos 1.4.0
 # astronomer-cosmos==1.4.0

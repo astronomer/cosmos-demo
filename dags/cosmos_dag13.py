@@ -26,11 +26,12 @@ project_config = ProjectConfig(jaffle_shop_path)
 render_config = RenderConfig(
     test_behavior=TestBehavior.AFTER_EACH,
     dbt_deps=True,
-    load_method=LoadMode.DBT_LS,
+    load_method=LoadMode.DBT_LS_FILE,
+    dbt_ls_path=jaffle_shop_path / "dbt_ls_models.txt"
 )
 
-if cosmos_version == "1.2.0":
-    cosmos_dag12 = DbtDag(
+if cosmos_version == "1.3.0":
+    cosmos_dag13 = DbtDag(
         # dbt/cosmos-specific parameters
         project_config=ProjectConfig(jaffle_shop_path),
         render_config=render_config,
@@ -41,8 +42,8 @@ if cosmos_version == "1.2.0":
         start_date=datetime(2023, 1, 1),
         operator_args=operator_args,
         catchup=False,
-        dag_id="cosmos_dag12",
-        tags=["cosmos_dag12"],
+        dag_id="cosmos_dag13",
+        tags=["cosmos_dag13"],
     )
 else:
-    logging.info(f"Skipping DAG cosmos_dag12 for cosmos version {cosmos_version}")
+    logging.info(f"Skipping DAG cosmos_dag13 for cosmos version {cosmos_version}")
