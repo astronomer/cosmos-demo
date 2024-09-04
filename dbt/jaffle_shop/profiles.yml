@@ -10,3 +10,10 @@ airflow_db:
       dbname: postgres
       schema: dbt
       threads: 4
+    bq:
+      type: bigquery
+      method: service-account
+      project: observability-sandbox-344122
+      schema: "{{ env_var('DEMO_SCHEMA', 'moonactive') }}"
+      threads: 2
+      keyfile: /usr/local/airflow/dbt/jaffle_shop/key.json
