@@ -1,1 +1,2 @@
-astronomer-cosmos>=1.0.2
+astronomer-cosmos==1.14.0a9
+apache-airflow-providers-google
