@@ -14,7 +14,7 @@ customers_tag = DbtDag(
         select=["tag:customers"],
     ),
     # normal dag parameters
-    schedule_interval="@daily",
+    schedule="@daily",
     start_date=datetime(2023, 1, 1),
     catchup=False,
     dag_id="customers_tag",
