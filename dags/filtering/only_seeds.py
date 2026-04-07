@@ -14,7 +14,7 @@ only_seeds = DbtDag(
         select=["path:seeds"],
     ),
     # normal dag parameters
-    schedule_interval=None,
+    schedule=None,
     start_date=datetime(2023, 1, 1),
     catchup=False,
     dag_id="only_seeds",

@@ -11,7 +11,7 @@ simple_dag = DbtDag(
     profile_config=airflow_db,
     execution_config=venv_execution_config,
     # normal dag parameters
-    schedule_interval="@daily",
+    schedule="@daily",
     start_date=datetime(2023, 1, 1),
     catchup=False,
     dag_id="simple_dag",

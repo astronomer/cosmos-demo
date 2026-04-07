@@ -11,7 +11,7 @@ from include.constants import jaffle_shop_path, venv_execution_config
 
 
 @dag(
-    schedule_interval="@daily",
+    schedule="@daily",
     start_date=datetime(2023, 1, 1),
     catchup=False,
     tags=["simple"],
