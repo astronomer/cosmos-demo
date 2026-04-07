@@ -10,3 +10,14 @@ airflow_db:
       dbname: postgres
       schema: dbt
       threads: 4
+
+bigquery:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: "{{ env_var('GCP_PROJECT_ID') }}"
+      dataset: "{{ env_var('GCP_BQ_DATASET') }}"
+      keyfile: "{{ env_var('GCP_KEYFILE_PATH') }}"
+      threads: 4
