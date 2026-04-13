@@ -3,21 +3,20 @@ from datetime import datetime
 from cosmos.airflow.dag import DbtDag
 from cosmos.config import ExecutionConfig, ProfileConfig, ProjectConfig, RenderConfig, InvocationMode
 from cosmos.constants import ExecutionMode
-from include.profiles import bigquery_db
-from include.constants import jaffle_shop_path, watcher_execution_config, dbt_executable
+from include.profiles import default_profile
+from include.constants import jaffle_shop_path, dbt_executable
 
-operator_args = {
-    "install_deps": True,  # install any necessary dependencies before running any dbt command
-}
 
 # [START example_watcher]
 example_watcher = DbtDag(
     # dbt/cosmos-specific parameters
-    execution_config=watcher_execution_config,
+    execution_config=ExecutionConfig(
+        execution_mode=ExecutionMode.WATCHER,
+        dbt_executable_path=str(dbt_executable),
+    ),
     project_config=ProjectConfig(jaffle_shop_path),
     render_config=RenderConfig(invocation_mode=InvocationMode.SUBPROCESS, dbt_executable_path=str(dbt_executable)),
-    profile_config=bigquery_db,
-    operator_args=operator_args,
+    profile_config=default_profile,
     # normal dag parameters
     schedule="@daily",
     start_date=datetime(2023, 1, 1),
