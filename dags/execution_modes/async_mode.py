@@ -32,4 +32,3 @@ simple_dag_async = DbtDag(
         "full_refresh": True,
     },
 )
-# [END airflow_async_execution_mode_example]

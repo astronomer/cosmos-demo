@@ -7,7 +7,6 @@ from include.profiles import default_profile
 from include.constants import jaffle_shop_path, dbt_executable
 
 
-# [START example_watcher]
 example_watcher = DbtDag(
     # dbt/cosmos-specific parameters
     execution_config=ExecutionConfig(
@@ -24,4 +23,3 @@ example_watcher = DbtDag(
     dag_id="example_watcher",
     default_args={"retries": 0},
 )
-# [END example_watcher]
