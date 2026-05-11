@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from cosmos.airflow.dag import DbtDag
-from cosmos.config import ExecutionConfig, ProfileConfig, ProjectConfig, RenderConfig, InvocationMode
+from cosmos.config import ExecutionConfig, ProjectConfig, RenderConfig, InvocationMode
 from cosmos.constants import ExecutionMode
 from include.profiles import default_profile
 from include.constants import jaffle_shop_path, dbt_executable
