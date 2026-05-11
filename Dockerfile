@@ -7,3 +7,7 @@ RUN python -m venv dbt_venv && source dbt_venv/bin/activate && \
 
 # set a connection to the airflow metadata db to use for testing
 ENV AIRFLOW_CONN_AIRFLOW_METADATA_DB=postgresql+psycopg2://postgres:postgres@postgres:5432/postgres
+# For Bigquery profile
+# ENV DBT_PROFILE=bigquery
+# ENV GCP_BQ_DATASET=
+# ENV GCP_PROJECT_ID=
